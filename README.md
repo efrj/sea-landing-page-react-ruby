@@ -1,1 +1,2 @@
-# sea-vuejs-php
+# SEA Landing Page Vue.js + Ruby
+
