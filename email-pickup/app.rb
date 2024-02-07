@@ -2,9 +2,14 @@ require 'json'
 require 'webrick'
 
 class NewsletterApp < WEBrick::HTTPServlet::AbstractServlet
+  def do_OPTIONS(request, response)
+    enable_cors(response)
+    response.status = 200
+  end
+
   def do_GET(request, response)
     enable_cors(response)
-    
+
     case request.path
     when '/'
       response.body = 'Welcome to the newsletter application!'
@@ -19,7 +24,7 @@ class NewsletterApp < WEBrick::HTTPServlet::AbstractServlet
 
   def do_POST(request, response)
     enable_cors(response)
-    
+
     case request.path
     when '/register'
       register_user(request)
@@ -70,7 +75,7 @@ class NewsletterApp < WEBrick::HTTPServlet::AbstractServlet
   end
 end
 
-server = WEBrick::HTTPServer.new(Port: 3000)
+server = WEBrick::HTTPServer.new(Port: 3001)
 server.mount('/', NewsletterApp)
 
 trap('INT') { server.shutdown }
