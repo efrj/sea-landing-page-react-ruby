@@ -1,9 +1,12 @@
 require 'json'
+require 'faker'
 
 def generate_random_users(count)
   users = []
   count.times do |i|
-    users << { 'name' => "User#{i + 1}", 'email' => "user#{i + 1}@example.com" }
+    name = Faker::Name.name
+    email = Faker::Internet.email(name: name, separators: '.')
+    users << { 'name' => name, 'email' => email }
   end
   users
 end
