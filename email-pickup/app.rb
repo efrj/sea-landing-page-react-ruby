@@ -3,6 +3,8 @@ require 'webrick'
 
 class NewsletterApp < WEBrick::HTTPServlet::AbstractServlet
   def do_GET(request, response)
+    enable_cors(response)
+    
     case request.path
     when '/'
       response.body = 'Welcome to the newsletter application!'
@@ -16,6 +18,8 @@ class NewsletterApp < WEBrick::HTTPServlet::AbstractServlet
   end
 
   def do_POST(request, response)
+    enable_cors(response)
+    
     case request.path
     when '/register'
       register_user(request)
@@ -28,6 +32,13 @@ class NewsletterApp < WEBrick::HTTPServlet::AbstractServlet
   end
 
   private
+
+  def enable_cors(response)
+    response['Access-Control-Allow-Origin'] = '*'
+    response['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'
+    response['Access-Control-Allow-Headers'] = 'Content-Type'
+    response['Access-Control-Allow-Credentials'] = 'true'
+  end
 
   def register_user(request)
     data = get_request_data(request)
