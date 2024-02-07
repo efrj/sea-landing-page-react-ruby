@@ -1,2 +1,2 @@
-# SEA Landing Page Vue.js + Ruby
+# SEA Landing Page React + Ruby
 
