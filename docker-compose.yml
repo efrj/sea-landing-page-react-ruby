@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./front
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./front/src:/app/src
+    container_name: sea_front
+  ruby:
+    build:
+      context: ./email-pickup
+    ports:
+      - 3001:3001
+    restart: unless-stopped
+    container_name: email_pickup
