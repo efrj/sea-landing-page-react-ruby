@@ -22,8 +22,11 @@ In the project root, run the `docker-compose up` command. View the app in the br
 
 #### Backend commands to use in the terminal 
 In the email-pickup directory you can use the commands below: 
+
 `ruby populate_users_file.rb` to create 100 users in the newsletter 
+
 `ruby remove_all_contacts.rb` remove all contacts 
+
 `ruby remove_duplicates.rb` remove all duplicate contacts 
 
 ### Instruções em Português 
@@ -41,6 +44,9 @@ Na raiz do projeto execute o comando `docker-compose up`. Vizualise o app no bro
 
 #### Comandos do back-end para usar no terminal 
 No diretório `email-pickup` você poderá usar os comandos abaixo: 
+
 `ruby populate_users_file.rb` para criar 100 usuários na newsletter 
+
 `ruby remove_all_contacts.rb` remover todos os contatos 
+
 `ruby remove_duplicates.rb` remover todos os contatos duplicados 
